@@ -21,11 +21,13 @@
     "keyboard_layout": "fi",
     "locale": "en_US",
 
-    "iso_url_amd64": "http://cdimage.debian.org/cdimage/jessie_di_beta_1/amd64/iso-cd/debian-jessie-DI-b1-amd64-netinst.iso",
-    "iso_checksum_amd64": "a9b76013000ef6b58ea584b57d4e15f109fc62e17dff723b0df75b8d06802740",
+    "iso_url_amd64": "http://cdimage.debian.org/cdimage/jessie_di_rc1/amd64/iso-cd/debian-jessie-DI-rc1-amd64-netinst.iso",
+    "iso_checksum_amd64": "00c9dc089953067177d82962c5759d4db91567151ca1bbe8551138fefe360340",
 
     "iso_url_i386": "http://cdimage.debian.org/cdimage/jessie_di_beta_1/i386/iso-cd/debian-jessie-DI-b1-i386-netinst.iso",
     "iso_checksum_i386": "189980fffee44056ac5cc54931d76bf549827b9665f75338cb2308f9872a33d2",
+    "iso_url_i386": "http://cdimage.debian.org/cdimage/jessie_di_rc1/i386/iso-cd/debian-jessie-DI-rc1-i386-netinst.iso",
+    "iso_checksum_i386": "45c03081be46d34ecb3d9b801cb0b1fb85a353898593cdd66e6edce3a7797fb4",
 
     "iso_checksum_type": "sha256",
   
