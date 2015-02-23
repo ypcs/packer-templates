@@ -5,11 +5,21 @@ set -e
 echo "I: Clean existing boxes..."
 rm -f *.box
 
+remove_inaccessible() {
+    for vm in $(vboxmanage list vms |grep ^\"\<inaccessible\>\" |cut -d" " -f2 |xargs)
+    do
+        echo "I: Removing inaccessible VM: ${vm}..."
+        vboxmanage unregistervm "${vm}"
+    done
+}
+
 cleanup() {
     make clean
 }
 
 trap cleanup EXIT
+
+remove_inaccessible
 
 VM_NAME="debian-jessie-amd64"
 VM_UUID="$(vboxmanage list vms |grep ^\"${VM_NAME}\" |cut -d' ' -f2 || echo "")"
