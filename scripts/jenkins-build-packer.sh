@@ -10,7 +10,6 @@ cleanup() {
 
 trap cleanup EXIT
 
-vagrant init debian-jessie64
 vagrant up
 
 vagrant ssh -c '/usr/local/bin/build-packer.sh'
