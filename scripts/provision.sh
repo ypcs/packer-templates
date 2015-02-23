@@ -67,7 +67,7 @@ echo "I: Build .deb with equivs..."
 equivs-build packer.equivs
 
 echo "I: Collect artifacts..."
-mv *.deb /vagrant/dist/
+mv *.deb /artifacts/
 EOF
 
 mv ${TEMPFILE} /usr/local/bin/build-packer.sh
