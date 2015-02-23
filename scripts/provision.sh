@@ -54,6 +54,9 @@ Description: Tool for creating identical machine images
  platforms from a single source configuration.
 Recommends: virtualbox, virtualbox-dkms, vagrant
 Suggests: open-vm-tools
+Conflicts: packer.io
+Replaces: packer.io
+Provides: packer.io
 FOE
 
 echo -n "Files:" >> packer.equivs
