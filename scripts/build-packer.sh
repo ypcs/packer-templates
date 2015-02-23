@@ -77,8 +77,9 @@ Description: Tool for creating identical machine images
  platforms from a single source configuration.
 Recommends: virtualbox, virtualbox-dkms, vagrant
 Suggests: open-vm-tools
-Files:FOE
+FOE
 
+echo -n "Files:" >> packer.equivs
 FILES="\$(ls bin/)"
 for f in \${FILES}
 do
