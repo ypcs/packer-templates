@@ -71,4 +71,4 @@ mv *.deb /artifacts/
 EOF
 
 mv ${TEMPFILE} /usr/local/bin/build-packer.sh
-chmod +x /usr/local/bin/build-packer.sh
+chmod 0755 /usr/local/bin/build-packer.sh
