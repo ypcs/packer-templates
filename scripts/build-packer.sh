@@ -61,6 +61,7 @@ make test
 echo "I: Build binaries..."
 make bin
 
+echo "I: Set-up equivs..."
 cat >packer.equivs << FOE
 Section: misc
 Priority: optional
@@ -84,7 +85,10 @@ do
     echo " bin/\$f /usr/" >>packer.equivs
 done
 
-equivs-control packer.equivs
+echo "I: Build .deb with equivs..."
+equivs-build packer.equivs
+
+echo "I: Collect artifacts..."
 mv *.deb /vagrant/dist/
 EOF
 vagrant ssh -c "sh /vagrant/${TEMPFILE}"
