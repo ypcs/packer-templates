@@ -1,43 +1,20 @@
 #!/bin/sh
-set -e
+set -ex
 
-rm -rf dist
-mkdir -p dist
+export DEBIAN_FRONTEND="noninteractive"
 
-cleanup() {
-    vagrant destroy -f
-}
-
-trap cleanup EXIT
+apt-get update
+apt-get -y install golang-go git mercurial
 
 ARCH="${ARCH:-amd64}"
 OS="${OS:-linux}"
 PACKER_REPOSITORY="https://github.com/mitchellh/packer.git"
 
-rm -f Vagrantfile
-vagrant init debian-jessie64
-vagrant up
-
-TEMPFILE="$(mktemp provision.XXXXXX.sh)"
-cat > ${TEMPFILE} << EOF
-#!/bin/sh
-set -ex
-
-export DEBIAN_FRONTEND="noninteractive"
-
-sudo apt-get update
-sudo apt-get -y install golang-go git mercurial
-EOF
-
-echo "I: Provisioning vagrant..."
-vagrant ssh -c "sudo sh /vagrant/${TEMPFILE}"
-rm -f ${TEMPFILE}
-
 echo "I: Setting up build script..."
 TEMPFILE="$(mktemp build.XXXXXX)"
 cat > ${TEMPFILE} << EOF
 #!/bin/sh
-set -e
+set -ex
 
 export GOPATH="\${HOME}/gopath"
 export PATH="\${PATH}:\${GOPATH}/bin"
@@ -69,7 +46,7 @@ Homepage: https://packer.io/
 Standards-Version: 3.9.2
 
 Package: packer
-Version: 0.7.5
+Version: 0.7.5+$(date +%Y%m%d%H%M%S)
 Maintainer: Ville Korhonen <ville@xd.fi>
 Architecture: amd64
 Description: Tool for creating identical machine images
@@ -92,7 +69,6 @@ equivs-build packer.equivs
 echo "I: Collect artifacts..."
 mv *.deb /vagrant/dist/
 EOF
-vagrant ssh -c "sh /vagrant/${TEMPFILE}"
-rm -f ${TEMPFILE}
 
-vagrant halt
+mv ${TEMPFILE} /usr/local/bin/build-packer.sh
+chmod +x /usr/local/bin/build-packer.sh
