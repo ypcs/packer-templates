@@ -53,7 +53,31 @@ make updatedeps
 make test
 make bin
 
-mv bin/* /vagrant/dist/
+cat >packer.equivs << FOE
+Section: misc
+Priority: optional
+Homepage: https://packer.io/
+Standards-Version: 3.9.2
+
+Package: packer
+Version: 0.7.5
+Maintainer: Ville Korhonen <ville@xd.fi>
+Architecture: amd64
+Description: Tool for creating identical machine images
+ Packer is a tool for creating identical machine images for multiple
+ platforms from a single source configuration.
+Recommends: virtualbox, virtualbox-dkms, vagrant
+Suggests: open-vm-tools
+Files:FOE
+
+FILES="\$(ls bin/)"
+for f in \${FILES}
+do
+    echo " bin/\$f /usr/" >>packer.equivs
+done
+
+equivs-control packer.equivs
+mv *.deb /vagrant/dist/
 EOF
 vagrant ssh -c "sh /vagrant/${TEMPFILE}"
 rm -f ${TEMPFILE}
