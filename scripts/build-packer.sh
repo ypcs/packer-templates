@@ -40,17 +40,13 @@ cat > ${TEMPFILE} << EOF
 set -e
 
 export GOPATH="\${HOME}/gopath"
-export PATH="\${PATH}:\${GOPATH}"
+export PATH="\${PATH}:\${GOPATH}/bin"
 export XC_ARCH="${ARCH}"
 export XC_OS="${OS}"
 export PACKER_PATH="\${GOPATH}/src/github.com/mitchellh/packer"
 
-echo "I: GOPATH:\${GOPATH}"
-mkdir \${GOPATH}
-
 echo "I: Install gox..."
 go get -u github.com/mitchellh/gox
-ls \${GOPATH}/src/github.com/mitchellh/
 
 echo "I: Clone packer to GOPATH..."
 git clone ${PACKER_REPOSITORY} \${PACKER_PATH}
