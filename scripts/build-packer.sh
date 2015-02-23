@@ -39,7 +39,7 @@ cat > ${TEMPFILE} << EOF
 #!/bin/sh
 set -e
 
-export GOPATH="~/gopath"
+export GOPATH="\${HOME}/gopath"
 export PATH="\${PATH}:\${GOPATH}"
 export XC_ARCH="${ARCH}"
 export XC_OS="${OS}"
