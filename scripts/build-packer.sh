@@ -45,12 +45,22 @@ export XC_ARCH="${ARCH}"
 export XC_OS="${OS}"
 export PACKER_PATH="\${GOPATH}/src/github.com/mitchellh/packer"
 
+echo "I: GOPATH:\${GOPATH}"
+
+echo "I: Install gox..."
 go get -u github.com/mitchellh/gox
+
+echo "I: Clone packer to GOPATH..."
 git clone ${PACKER_REPOSITORY} \${PACKER_PATH}
 
+echo "I: Install dependencies..."
 cd \${PACKER_PATH}
 make updatedeps
+
+echo "I: Run tests..."
 make test
+
+echo "I: Build binaries..."
 make bin
 
 cat >packer.equivs << FOE
