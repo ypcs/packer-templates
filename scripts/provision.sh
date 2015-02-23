@@ -4,7 +4,7 @@ set -ex
 export DEBIAN_FRONTEND="noninteractive"
 
 apt-get update
-apt-get -y install golang-go git mercurial
+apt-get -y install golang-go git mercurial equivs
 
 ARCH="${ARCH:-amd64}"
 OS="${OS:-linux}"
