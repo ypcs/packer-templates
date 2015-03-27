@@ -49,7 +49,7 @@
                 ]
             },
             "vmware-iso": {
-                    "scripts": [
+                "scripts": [
                     "provision/000-base.sh",
                     "provision/001-remove-packages.sh",
                     "provision/vmware.sh",
