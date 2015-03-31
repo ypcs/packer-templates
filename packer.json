@@ -6,7 +6,7 @@
         "cpu_cores": 1,
         "memory": 1024,
 
-        "disk_size": 100000,
+        "disk_size": 50000,
         "disk_interface": "sata",
 
         "vm_username": "vagrant",
@@ -71,7 +71,8 @@
     "post-processors": [
         {
             "type": "vagrant",
-            "output": "vagrant_{{user `vm_name`}}_{{.Provider}}_{{user `build_id`}}.box"
+            "output": "vagrant_{{user `vm_name`}}_{{.Provider}}_{{user `build_id`}}.box",
+            "keep_input_artifact": true
         }
     ],
 
@@ -217,7 +218,7 @@
         "ssh_wait_timeout": "3600s",
         "shutdown_command": "echo '{{user `vm_password`}}' |sudo -S shutdown -P now",
         "disk_size": "{{user `disk_size`}}",
-        "headless": true,
+        "headless": false,
         "http_directory": "{{user `docroot`}}"
     }]
 }
