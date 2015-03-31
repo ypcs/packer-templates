@@ -30,6 +30,10 @@ git clone ${PACKER_REPOSITORY} \${PACKER_PATH}
 
 echo "I: Install dependencies..."
 cd \${PACKER_PATH}
+if [ -n "${GIT_BRANCH}" ]
+then
+    git checkout ${GIT_BRANCH}
+fi
 make updatedeps
 
 echo "I: Run tests..."
