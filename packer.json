@@ -187,6 +187,7 @@
         "type": "qemu",
         "format": "qcow2",
         "accelerator": "kvm",
+        "shrink_image": true,
         "net_device": "virtio-net",
         "disk_interface": "virtio",
         "iso_url": "{{user `iso_url_amd64`}}",
