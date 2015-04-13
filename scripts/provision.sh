@@ -9,7 +9,6 @@ apt-get -y install golang-go git mercurial equivs
 ARCH="${ARCH:-amd64}"
 OS="${OS:-linux}"
 PACKER_REPOSITORY="https://github.com/ypcs/packer.git"
-GIT_BRANCH="feature/qemu-shrink-image"
 
 echo "I: Setting up build script..."
 TEMPFILE="$(mktemp build.XXXXXX)"
