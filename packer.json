@@ -87,9 +87,6 @@
         "vboxmanage": [
             ["storageattach", "{{.Name}}", "--storagectl", "SATA", "--port", "0", "--discard", "on", "--nonrotational", "on"]
         ],
-        "vboxmanage_post": [
-            ["modifyhd", "{{.Name}}.vdi", "--compact"]
-        ],
 
         "ssh_username": "{{user `vm_username`}}",
         "ssh_password": "{{user `vm_password`}}",
