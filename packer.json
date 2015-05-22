@@ -84,6 +84,10 @@
         "iso_checksum": "{{user `iso_checksum_amd64`}}",
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
 
+        "vboxmanage": [
+            ["storageattach", "{{.Name}}", "--storagectl", "SATA", "--port", "0", "--discard on"]
+        ],
+
         "ssh_username": "{{user `vm_username`}}",
         "ssh_password": "{{user `vm_password`}}",
         "ssh_wait_timeout": "3600s",
