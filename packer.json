@@ -85,7 +85,10 @@
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
 
         "vboxmanage": [
-            ["storageattach", "{{.Name}}", "--storagectl", "SATA", "--port", "0", "--discard on"]
+            ["storageattach", "{{.Name}}", "--storagectl", "SATA", "--port", "0", "--discard", "on", "--nonrotational", "on"]
+        ],
+        "vboxmanage_post": [
+            ["modifyhd", "{{.Name}}.vdi", "--compact"]
         ],
 
         "ssh_username": "{{user `vm_username`}}",
