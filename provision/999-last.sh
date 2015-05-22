@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -x
 # Clean downloaded APT packages
 apt-get -y autoremove
 apt-get clean
@@ -25,7 +25,8 @@ echo "I: Clean persistent network devices..."
 echo "# cleaned by packer provisioning scripts" >/etc/udev/rules.d/70-persistent-net.rules
 
 # Zero out the free space to save space in the final image:
-dd if=/dev/zero of=/EMPTY bs=1M
-rm -f /EMPTY
+#dd if=/dev/zero of=/EMPTY bs=1M
+#rm -f /EMPTY
+fstrim /
 
 exit 0
