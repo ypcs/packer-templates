@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND="noninteractive"
 
 apt-get -y remove avahi-autoipd bluetooth netcat-traditional pinentry-gtk2 reportbug rpcbind telnet w3m wamerican wireless-tools wpasupplicant ftp geoip-database hicolor-icon-theme iamerican ibritish ienglish-common libavahi-* nfs-common task-english wireless-regdb
 
-apt-get -y remove aptitude aspell aspell-en avahi-daemon dc bc debian-faq gettext-base
+apt-get -y remove aptitude aspell aspell-en avahi-daemon dc bc debian-faq gettext-base manpages procmail info installation-report python-reportbug m4 at libclass-isa-perl texinfo bc eject doc-debian
 
 
 TEMPFILE="$(mktemp)"
