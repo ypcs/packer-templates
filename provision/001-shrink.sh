@@ -1,4 +1,11 @@
 #!/bin/sh
+
+set -e
+
+export DEBIAN_FRONTEND="noninteractive"
+
+apt-get -y remove avahi-autoipd bluetooth netcat-traditional pinentry-gtk2 reportbug rpcbind telnet w3m wamerican wireless-tools wpasupplicant ftp geoip-database hicolor-icon-theme iamerican ibritish ienglish-common libavahi-* nfs-common task-english wireless-regdb
+#!/bin/sh
 set -e
 
 export DEBIAN_FRONTEND="noninteractive"
@@ -17,7 +24,7 @@ localepurge	localepurge/nopurge	multiselect	en, en_US, en_US.UTF-8, fi, fi_FI.UT
 localepurge	localepurge/none_selected	boolean	false
 EOF
 
-debconf-get-selections < ${TEMPFILE}
+debconf-set-selections < ${TEMPFILE}
 
 apt-get -y install localepurge
 

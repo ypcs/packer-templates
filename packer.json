@@ -42,7 +42,7 @@
             "virtualbox-iso": {
                 "scripts": [
                     "provision/000-base.sh",
-                    "provision/001-remove-packages.sh",
+                    "provision/001-shrink.sh",
                     "provision/virtualbox.sh",
                     "provision/vagrant.sh",
                     "provision/999-last.sh"
@@ -51,7 +51,7 @@
             "vmware-iso": {
                 "scripts": [
                     "provision/000-base.sh",
-                    "provision/001-remove-packages.sh",
+                    "provision/001-shrink.sh",
                     "provision/vmware.sh",
                     "provision/vagrant.sh",
                     "provision/999-last.sh"
@@ -60,7 +60,7 @@
             "qemu": {
                 "scripts": [
                     "provision/000-base.sh",
-                    "provision/001-remove-packages.sh",
+                    "provision/001-shrink.sh",
                     "provision/vagrant.sh",
                     "provision/999-last.sh"
                 ]
