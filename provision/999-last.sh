@@ -27,8 +27,9 @@ echo "I: Clean persistent network devices..."
 echo "# cleaned by packer provisioning scripts" >/etc/udev/rules.d/70-persistent-net.rules
 
 # Zero out the free space to save space in the final image:
-#dd if=/dev/zero of=/EMPTY bs=1M
-#rm -f /EMPTY
-fstrim /
+echo "I: Emptying unused disk space..."
+dd if=/dev/zero of=/EMPTY bs=1M
+rm -f /EMPTY
+#fstrim /
 
 exit 0
