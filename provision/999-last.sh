@@ -5,6 +5,8 @@ apt-get -y autoremove
 apt-get clean
 
 rm -f /var/lib/apt/lists/*
+rm -f /var/cache/apt/*.bin
+rm -f /var/cache/apt/archives/*.deb
 
 # Remove installation logs
 rm -rf /var/log/installer
