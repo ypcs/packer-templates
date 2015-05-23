@@ -2,6 +2,9 @@
 
 echo "$(date)" >/etc/vagrant_box_build_time
 
+sed -i 's/errors=remount-ro/discard,errors=remount-ro,g' /etc/fstab
+mount -o remount /
+
 export DEBIAN_FRONTEND="noninteractive"
 
 echo "I: Add sudo permissions to user vagrant..."
