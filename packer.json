@@ -4,7 +4,7 @@
         "vm_name": "debian-jessie-amd64",
 
         "cpu_cores": 1,
-        "memory": 1024,
+        "memory": 512,
 
         "disk_size": 50000,
         "disk_interface": "sata",
