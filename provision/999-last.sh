@@ -12,10 +12,10 @@ rm -f /var/cache/apt/archives/*.deb
 rm -rf /var/log/installer
 
 cat > /etc/apt/sources.list << EOF
-deb https://cloudfront.debian.net/debian jessie main contrib non-free
-deb-src https://cloudfront.debian.net/debian jessie main contrib non-free
-deb https://cloudfront.debian.net/debian jessie-updates main contrib non-free
-deb-src https://cloudfront.debian.net/debian jessie-updates main contrib non-free
+deb http://httpredir.debian.org/debian jessie main contrib non-free
+deb-src http://httpredir.debian.org/debian jessie main contrib non-free
+deb http://httpredir.debian.org/debian jessie-updates main contrib non-free
+deb-src http://httpredir.debian.org/debian jessie-updates main contrib non-free
 deb http://security.debian.org/ jessie/updates main contrib non-free
 deb-src http://security.debian.org/ jessie/updates main contrib non-free
 EOF
