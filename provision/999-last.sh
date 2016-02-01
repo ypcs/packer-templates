@@ -12,12 +12,12 @@ rm -f /var/cache/apt/archives/*.deb
 rm -rf /var/log/installer
 
 cat > /etc/apt/sources.list << EOF
-deb http://httpredir.debian.org/debian jessie main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie main contrib non-free
-deb http://httpredir.debian.org/debian jessie-updates main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie-updates main contrib non-free
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
+deb http://vbox.local.ypcs.fi/debian jessie main contrib non-free
+deb-src http://vbox.local.ypcs.fi/debian jessie main contrib non-free
+deb http://vbox.local.ypcs.fi/debian jessie-updates main contrib non-free
+deb-src http://vbox.local.ypcs.fi/debian jessie-updates main contrib non-free
+deb http://vbox.local.ypcs.fi/debian-security jessie/updates main contrib non-free
+deb-src http://vbox.local.ypcs.fi/debian-security jessie/updates main contrib non-free
 EOF
 
 echo "I: Remove DHCP leases..."
