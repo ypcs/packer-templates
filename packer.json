@@ -43,15 +43,6 @@
                     "provision/999-last.sh"
                 ]
             },
-            "vmware-iso": {
-                "scripts": [
-                    "provision/000-base.sh",
-                    "provision/001-shrink.sh",
-                    "provision/vmware.sh",
-                    "provision/vagrant.sh",
-                    "provision/999-last.sh"
-                ]
-            },
             "qemu": {
                 "scripts": [
                     "provision/000-base.sh",
@@ -137,49 +128,6 @@
                 "virtio"
             ]
         ]
-    },
-    {
-        "vm_name": "{{user `vm_name`}}",
-        "type": "vmware-iso",
-        "guest_os_type": "debian7-64",
-        "iso_url": "{{user `iso_url_amd64`}}",
-        "iso_checksum": "{{user `iso_checksum_amd64`}}",
-        "iso_checksum_type": "{{user `iso_checksum_type`}}",
-
-        "boot_command": [
-            "<esc><wait>",
-            "install ",
-            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-            "debian-installer={{user `locale`}} ",
-            "locale={{user `locale`}} ",
-            "auto ",
-            "kbd-chooser/method={{user `keyboard_layout`}} ",
-            "netcfg/get_hostname={{user `vm_name` }} ",
-            "netcfg/get_domain=vagrantup.com ",
-            "fb=false ",
-            "debconf/frontend=noninteractive ",
-            "console-setup/ask_detect=false ",
-            "console-keymaps-at/keymap={{user `keyboard_layout`}} ",
-            "keyboard-configuration/xkb-keymap={{ user `keyboard_layout`}} ",
-            "mirror/http/hostname={{ user `debian_mirror_hostname`}} " ,
-            "mirror/http/directory={{ user `debian_mirror_directory`}} ",
-            "<enter><wait>"
-        ],
-
-        "ssh_username": "{{user `vm_username`}}",
-        "ssh_password": "{{user `vm_password`}}",
-        "ssh_wait_timeout": "1800s",
-        "shutdown_command": "echo '{{user `vm_password`}}' |sudo -S shutdown -P now",
-        "disk_size": "{{user `disk_size`}}",
-        "headless": true,
-        "http_directory": "{{user `docroot`}}",
-
-        "vmx_data": {
-            "cpuid.coresPerSocket": "1",
-            "memsize": "{{user `memory`}}",
-            "numvcpus": "{{user `cpu_cores`}}"
-        }
-
     }, {
         "vm_name": "{{user `vm_name`}}",
         "type": "qemu",
