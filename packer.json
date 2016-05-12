@@ -47,6 +47,7 @@
                 "scripts": [
                     "provision/000-base.sh",
                     "provision/001-shrink.sh",
+                    "provision/qemu.sh",
                     "provision/vagrant.sh",
                     "provision/999-last.sh"
                 ]
@@ -164,7 +165,7 @@
         "ssh_wait_timeout": "1800s",
         "shutdown_command": "echo '{{user `vm_password`}}' |sudo -S shutdown -P now",
         "disk_size": "{{user `disk_size`}}",
-        "headless": true,
+        "headless": false,
         "http_directory": "{{user `docroot`}}"
     }]
 }
